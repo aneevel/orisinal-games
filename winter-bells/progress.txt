@@ -2,3 +2,22 @@
 
 First step is constructing a base window. For this step, no logic is
 necessary; just create a 800 x 600 window for now.
+
+### 4:07 PM ###
+
+Now would be a good time to start displaying some graphics - we don't
+have anything on screen yet.
+
+A natural place to start is loading the initial background. I won't worry
+about a menu for now, I just want to get into the game. In the original game,
+you are a rabbit in a snow-covered landscape with trees in the background.
+Snow is falling from the sky. I won't deal with that yet, but I do want to
+choose a background where I can replicate something similar. My choice will
+be a forest background, so I can replace all the major graphical elements
+of the original game. The background will be trees with a dark night above.
+The rabbit will be replaced by a squirrel, which is anatomically similar (eases
+drawing). The snow particles will be replaced by small leaves, and the bells
+will be replaced by acorns.
+
+For now, I should create a simple 800 x 600 background to display at the beginning.
+
