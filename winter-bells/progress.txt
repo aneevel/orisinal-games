@@ -1,0 +1,4 @@
+### 4:04 PM ###
+
+First step is constructing a base window. For this step, no logic is
+necessary; just create a 800 x 600 window for now.
