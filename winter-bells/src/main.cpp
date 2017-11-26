@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main() {
 
@@ -8,6 +9,15 @@ int main() {
 
 	// Limit the framerate to 60 fps to ensure a smooth run
 	window.setFramerateLimit(60);
+
+	// Load the background texture
+	sf::Texture background;
+	if(!background.loadFromFile("assets/background.png"))
+		std::cout << "Could not load background asset!" << std::endl;
+
+	// Create a sprite to represent it
+	sf::Sprite backgroundSprite;
+	backgroundSprite.setTexture(background);
 
 	while (window.isOpen()) {
 
@@ -23,7 +33,7 @@ int main() {
 		window.clear();
 
 		// Enter draw phase
-		// TODO: Add draw phase
+		window.draw(backgroundSprite);
 
 		// Enter display phase
 		window.display();
