@@ -1,4 +1,4 @@
-### 4:04 PM ###
+### 11/25 4:04 PM ###
 
 First step is constructing a base window. For this step, no logic is
 necessary; just create a 800 x 600 window for now.
@@ -21,3 +21,14 @@ will be replaced by acorns.
 
 For now, I should create a simple 800 x 600 background to display at the beginning.
 
+### 5:07 PM ###
+
+I've created a background for use. It is located in the asset folder, where
+all graphics will end up. There's no issue loading this background, though
+I dislike how it looks right now. I'll wait to add any polish to the background.
+
+Next up is creating a moveable sprite. As previously established, the player
+is a squirrel. I will insert the playable squirrel at the bottom of the frame,
+with only one animation. This squirrel will need to move along with the mouse,
+so the SFML Event section will need to be thoroughly understand to implement
+movement.

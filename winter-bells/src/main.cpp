@@ -19,6 +19,15 @@ int main() {
 	sf::Sprite backgroundSprite;
 	backgroundSprite.setTexture(background);
 
+	// Load the player texture
+	sf::Texture player;
+	if(!player.loadFromFile("assets/squirrel.png"))
+		std::cout << "Could not load player asset!" << std::endl;
+
+	// Create a sprite to represent it
+	sf::Sprite playerSprite;
+	playerSprite.setTexture(player);
+
 	while (window.isOpen()) {
 
 		sf::Event event;
@@ -34,6 +43,7 @@ int main() {
 
 		// Enter draw phase
 		window.draw(backgroundSprite);
+		window.draw(playerSprite);
 
 		// Enter display phase
 		window.display();
