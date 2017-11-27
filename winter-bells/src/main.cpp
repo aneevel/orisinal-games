@@ -28,14 +28,32 @@ int main() {
 	sf::Sprite playerSprite;
 	playerSprite.setTexture(player);
 
+	// 60 is a magic number for now - the size of the sprite
+	playerSprite.setPosition(window.getSize().x / 2, window.getSize().y - 60);
+
 	while (window.isOpen()) {
 
 		sf::Event event;
+
+		// Immediately grab mouse position
+		int previousPosition = event.mouseMove.x;
+
 		while (window.pollEvent(event)) {
 
 			// Process a close request
 			if (event.type == sf::Event::Closed)
 				window.close();
+		}
+
+		// Check for mouse movement
+		if(sf::Event::MouseMoved && (previousPosition - event.mouseMove.x) > 1) {
+
+			playerSprite.setPosition(sf::Mouse::getPosition(window).x, playerSprite.getPosition().y);
+			std::cout << "Mouse left" << std::endl;
+		} else if (sf::Event::MouseMoved && (event.mouseMove.x - previousPosition) > 1) {
+
+			playerSprite.setPosition(sf::Mouse::getPosition(window).x , playerSprite.getPosition().y);
+			std::cout << "Mouse right" << std::endl;
 		}
 
 		// Clear before draw phase

@@ -32,3 +32,34 @@ is a squirrel. I will insert the playable squirrel at the bottom of the frame,
 with only one animation. This squirrel will need to move along with the mouse,
 so the SFML Event section will need to be thoroughly understand to implement
 movement.
+
+### 11/26 11:33 PM ###
+
+I've had a chance to pick this back up for a bit. The squirrel is now positioned
+at the x midpoint, y max - 60 (notably, the size of squirrel.png). 
+
+In order to move the squirrel, we must utilize sf::Mouse. The squirrel must move
+in the direction the mouse has moved. The squirrel should move some set amount
+each frame until it has moved to the mouse. The algorithm for this is as follows;
+
+INIT position.difference
+WHILE (window.isOpen)
+	GET squirrel.position
+	GET mouse.position
+	CHECK sf::Mouse EVENT
+	IF EVENT OR position.difference != 0
+		GET mouse.position.new
+		SUBTRACT mouse.position.new FROM mouse.position 
+		SUBTRACT mouse.position FROM squirrel.position STORE IN position.difference
+		IF position.difference / 10 >= 1
+			SUBTRACT/ADD +10/-10 from squirrel.position
+			SUBTRACT/ADD +10/-10 from position.difference
+		ELSE IF position.difference / 10 != 0 
+			squirrel.position + position.difference
+
+### UPDATE ###
+
+The algorithm ended up being overly complex, thanks to SFML Mouse handling. All it must
+do now is check if the mouse moved, and change the sprite to the mouse position. Now
+the squirrel will follow the mouse around!
+
